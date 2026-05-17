@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>政大約會提案 🌸</title>
+  <link rel="stylesheet" href="/static/css/main.css?v=7" />
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- 品牌標語 -->
+  <header class="brand">
+    <div class="brand-icon">🌸</div>
+    <h1>政大約會提案</h1>
+    <p class="brand-sub">不知道去哪？讓我們幫你決定</p>
+  </header>
+
+  <!-- 問卷容器 -->
+  <div class="quiz-card" id="quizCard">
+
+    <!-- 進度條 -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-label" id="progressLabel">1 / 7</div>
+
+    <!-- 各步驟 -->
+    <div class="steps-wrap" id="stepsWrap">
+
+      <!-- Step 1: 旅伴類型 -->
+      <div class="step" data-step="1">
+        <div class="step-icon">👥</div>
+        <h2>這次要和誰出發？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-key="companion_type" data-value="個人">🧍 個人獨旅</button>
+          <button class="choice-btn" data-key="companion_type" data-value="情侶">💑 情侶</button>
+          <button class="choice-btn" data-key="companion_type" data-value="朋友">👫 朋友</button>
+          <button class="choice-btn" data-key="companion_type" data-value="家人">👨‍👩‍👧 家人</button>
+        </div>
+      </div>
+
+      <!-- Step 2: 人數（朋友/家人才顯示） -->
+      <div class="step" data-step="2">
+        <div class="step-icon">🔢</div>
+        <h2>幾個人呢？</h2>
+        <div class="number-picker">
+          <button class="num-btn" id="numMinus">－</button>
+          <span class="num-display" id="numDisplay">2</span>
+          <button class="num-btn" id="numPlus">＋</button>
+        </div>
+        <button class="next-btn" id="numConfirm">確認人數</button>
+      </div>
+
+      <!-- Step 3: 時長 -->
+      <div class="step" data-step="3">
+        <div class="step-icon">⏱</div>
+        <h2>打算出去多久？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-key="duration" data-value="3小時以內">⚡ 3 小時以內<span class="choice-sub">快閃行程</span></button>
+          <button class="choice-btn" data-key="duration" data-value="半天">🌤 半天<span class="choice-sub">從容出遊</span></button>
+          <button class="choice-btn" data-key="duration" data-value="一整天">☀️ 一整天<span class="choice-sub">深度體驗</span></button>
+        </div>
+      </div>
+
+      <!-- Step 4: 時段（自動偵測） -->
+      <div class="step" data-step="4">
+        <div class="step-icon">🕐</div>
+        <h2>什麼時段出發？</h2>
+        <p class="auto-hint" id="autoHint">偵測中…</p>
+        <div class="choices">
+          <button class="choice-btn" data-key="time_of_day" data-value="早上">🌅 早上</button>
+          <button class="choice-btn" data-key="time_of_day" data-value="下午">☀️ 下午</button>
+          <button class="choice-btn" data-key="time_of_day" data-value="晚上">🌙 晚上</button>
+        </div>
+      </div>
+
+      <!-- Step 5: 預算 -->
+      <div class="step" data-step="5">
+        <div class="step-icon">💰</div>
+        <h2>每人預算大概多少？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-key="budget" data-value="免費">🆓 免費<span class="choice-sub">口袋空空沒關係</span></button>
+          <button class="choice-btn" data-key="budget" data-value="300以下">💵 300 元以下</button>
+          <button class="choice-btn" data-key="budget" data-value="300~500">💳 300 ～ 500 元</button>
+          <button class="choice-btn" data-key="budget" data-value="500~1000">💎 500 ～ 1000 元</button>
+          <button class="choice-btn" data-key="budget" data-value="1000以上">👑 1000 元以上<span class="choice-sub">今天要奢侈</span></button>
+        </div>
+      </div>
+
+      <!-- Step 6: 室內外 -->
+      <div class="step" data-step="6">
+        <div class="step-icon">🏠</div>
+        <h2>室內還是室外？</h2>
+        <div class="choices three-col">
+          <button class="choice-btn" data-key="indoor_pref" data-value="室內">🏢 室內<span class="choice-sub">冷氣吹著走</span></button>
+          <button class="choice-btn" data-key="indoor_pref" data-value="室外">🌳 室外<span class="choice-sub">感受大自然</span></button>
+          <button class="choice-btn" data-key="indoor_pref" data-value="都可以">✨ 都可以</button>
+        </div>
+      </div>
+
+      <!-- Step 7: 動靜 -->
+      <div class="step" data-step="7">
+        <div class="step-icon">⚡</div>
+        <h2>想要什麼調性的行程？</h2>
+        <div class="choices three-col">
+          <button class="choice-btn" data-key="activity_pref" data-value="靜態">🎬 靜態<span class="choice-sub">電影展覽用餐</span></button>
+          <button class="choice-btn" data-key="activity_pref" data-value="動態">🏃 動態<span class="choice-sub">爬山運動探險</span></button>
+          <button class="choice-btn" data-key="activity_pref" data-value="都可以">✨ 都可以</button>
+        </div>
+      </div>
+
+      <!-- 最終畫面：送出 or 轉盤 -->
+      <div class="step" data-step="8">
+        <div class="step-icon">🎉</div>
+        <h2>準備好了！</h2>
+        <p class="final-summary" id="finalSummary"></p>
+        <button class="submit-btn" id="submitBtn">✨ 幫我推薦行程</button>
+        <div class="spin-divider">— 或者 —</div>
+        <button class="spin-btn" id="spinBtn">🎡 我超級選擇困難，直接幫我決定！</button>
+      </div>
+
+    </div><!-- /steps-wrap -->
+
+    <!-- 返回按鈕 -->
+    <button class="back-btn" id="backBtn" style="display:none">← 上一步</button>
+  </div><!-- /quiz-card -->
+
+  <!-- 載入遮罩 -->
+  <div class="loading-overlay" id="loadingOverlay" style="display:none">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p id="loadingText">幫你找最棒的約會行程中…</p>
+    </div>
+  </div>
+
+</div><!-- /app-shell -->
+
+<script src="/static/js/quiz.js?v=7"></script>
+</body>
+</html>

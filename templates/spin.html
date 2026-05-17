@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>命運轉盤 🎡</title>
+  <link rel="stylesheet" href="/static/css/main.css?v=7" />
+</head>
+<body>
+
+<div class="app-shell">
+  <header class="brand">
+    <div class="brand-icon">🎡</div>
+    <h1>命運轉盤</h1>
+    <p class="brand-sub">把決定權交給宇宙</p>
+  </header>
+
+  <div class="spin-page">
+    <!-- 轉盤 -->
+    <div class="wheel-wrap">
+      <div class="wheel" id="wheel">
+        <div class="wheel-center">🌸</div>
+      </div>
+      <div class="wheel-pointer">▼</div>
+    </div>
+
+    <!-- 轉動按鈕 -->
+    <button class="spin-trigger-btn" id="spinTrigger">🎡 轉動命運！</button>
+
+    <!-- 結果揭曉 -->
+    <div class="spin-result" id="spinResult" style="display:none">
+      <div class="result-reveal-icon">🎉</div>
+      <h2>今天就去這！</h2>
+      <div class="spin-result-card" id="spinResultCard">
+        <!-- 由 JS 填入 -->
+      </div>
+      <div class="spin-actions">
+        <button class="secondary-btn" onclick="location.href='/'">重新規劃</button>
+        <button class="spin-trigger-btn" id="reSpinBtn">再轉一次</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/spin.js?v=7"></script>
+</body>
+</html>
