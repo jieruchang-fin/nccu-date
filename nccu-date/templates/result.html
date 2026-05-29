@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的約會行程 🌸</title>
+  <link rel="stylesheet" href="/static/css/main.css?v=3" />
+</head>
+<body>
+
+<div class="app-shell">
+  <header class="brand">
+    <div class="brand-icon">🌸</div>
+    <h1>政大約會提案</h1>
+  </header>
+
+  <div class="result-header">
+    <h2 id="resultTitle">為你找到 <span id="resultCount">0</span> 組行程！</h2>
+    <p id="resultSubtitle" class="result-sub"></p>
+  </div>
+
+  <!-- 行程卡片列表 -->
+  <div class="itinerary-list" id="itineraryList">
+    <!-- 由 JS 動態填入 -->
+  </div>
+
+  <!-- 找不到時顯示 -->
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="empty-icon">😢</div>
+    <p>找不到符合條件的行程</p>
+    <p class="empty-sub">試試調整預算或時段？</p>
+    <button class="back-home-btn" onclick="location.href='/'">重新規劃</button>
+  </div>
+
+  <!-- 底部操作 -->
+  <div class="result-actions" id="resultActions" style="display:none">
+    <button class="secondary-btn" onclick="location.href='/'">🔄 重新規劃</button>
+    <button class="spin-btn" onclick="location.href='/spin'">🎡 轉盤模式</button>
+  </div>
+
+</div>
+
+<script src="/static/js/result.js?v=3"></script>
+</body>
+</html>
